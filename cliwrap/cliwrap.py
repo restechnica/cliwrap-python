@@ -3,12 +3,14 @@ import subprocess
 
 from cliwrap import utils
 
+logger = logging.getLogger(__name__)
+
 
 def run(command, options, on_success=utils.do_nothing, on_error=utils.do_nothing):
     try:
         command.extend(options)
 
-        logging.info(f'running {command}')
+        logger.info(f'running {command}')
 
         subprocess.run(command, check=True)
 
