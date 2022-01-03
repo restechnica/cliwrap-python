@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: 3.7
 
-      - name: install pipenv
+      - name: install poetry
         run: |
           python3 -m pip install --upgrade poetry
 
@@ -34,7 +34,7 @@ jobs:
       - name: install python packages
         if: steps.cache-python-packages.outputs.cache-hit != 'true'
         run: |
-          pipenv install --deploy --dev
+          poetry install
 
       - name: set up path
         run: |
